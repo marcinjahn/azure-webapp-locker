@@ -1,0 +1,8 @@
+subscription_id = ""
+rg_name = ""
+web_app_name = ""
+web_app_location = ""
+client_id = ""
+client_secret = ""
+tenant_id = ""
+rule_priority_number = 444
