@@ -31,5 +31,5 @@ When the config is ready, you can run the app as follows (make sure Rust is inst
 
 ```sh
 cargo run --quiet -- 1 # unlock public access
-cargo run --quiet -- 0 # lock access only via iBoss
+cargo run --quiet -- 0 # lock public access
 ```
