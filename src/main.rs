@@ -1,6 +1,6 @@
 use std::error::Error;
 use std::result::Result;
-use api_playground_lockpick::{lock, unlock, AppConfig};
+use azure_web_app_locker::{lock, unlock, AppConfig};
 
 fn main() -> Result<(), Box<dyn Error>> {
     let error_msg =
