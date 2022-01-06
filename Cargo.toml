@@ -1,5 +1,5 @@
 [package]
-name = "api-playground-lockpick"
+name = "azure-web-app-locker"
 version = "0.1.0"
 edition = "2021"
 

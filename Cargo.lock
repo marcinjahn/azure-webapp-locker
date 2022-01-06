@@ -12,16 +12,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "api-playground-lockpick"
-version = "0.1.0"
-dependencies = [
- "config",
- "reqwest",
- "serde 1.0.133",
- "serde_json",
-]
-
-[[package]]
 name = "arrayvec"
 version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -32,6 +22,16 @@ name = "autocfg"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cdb031dd78e28731d87d56cc8ffef4a8f36ca26c38fe2de700543e627f8a464a"
+
+[[package]]
+name = "azure-web-app-locker"
+version = "0.1.0"
+dependencies = [
+ "config",
+ "reqwest",
+ "serde 1.0.133",
+ "serde_json",
+]
 
 [[package]]
 name = "base64"
