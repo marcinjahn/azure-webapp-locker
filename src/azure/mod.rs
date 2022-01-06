@@ -3,7 +3,10 @@ pub mod http_payloads;
 use crate::access_token::AccessToken;
 use std::error::Error;
 
-use self::http_payloads::{IpSecurityRestrictionsResponse, IpSecurityRestriction, IpRestrictionsPatchRequest, IpSecurityRestrictionsPropertiesRequest};
+use self::http_payloads::{
+    IpRestrictionsPatchRequest, IpSecurityRestriction, IpSecurityRestrictionsPropertiesRequest,
+    IpSecurityRestrictionsResponse,
+};
 
 pub struct WebAppDetails<'a> {
     pub subscription_id: &'a str,
@@ -19,17 +22,17 @@ pub struct WebAppRestrictionsManager {
 
 impl WebAppRestrictionsManager {
     fn get_resource_url(&self, web_app_details: &WebAppDetails) -> String {
-        String::from(format!(
+        format!(
             "https://management.azure.com{}?api-version=2018-11-01",
             self.get_resource_id(web_app_details)
-        ))
+        )
     }
 
     fn get_resource_id(&self, web_app_details: &WebAppDetails) -> String {
-        String::from(format!(
+        format!(
             "/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Web/sites/{}/config/web",
             web_app_details.subscription_id, web_app_details.rg_name, web_app_details.web_app_name
-        ))
+        )
     }
 
     pub fn new() -> WebAppRestrictionsManager {
@@ -65,7 +68,7 @@ impl WebAppRestrictionsManager {
         web_app_details: &WebAppDetails,
     ) -> Result<(), Box<dyn Error>> {
         let request = IpRestrictionsPatchRequest {
-            id: self.get_resource_id(&web_app_details),
+            id: self.get_resource_id(web_app_details),
             name: String::from(web_app_details.web_app_name),
             r#type: String::from("Microsoft.Web/sites/config"),
             location: String::from(web_app_details.location),

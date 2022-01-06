@@ -33,10 +33,11 @@ pub fn unlock(config: AppConfig) -> Result<(), Box<dyn Error>> {
         location: &config.web_app_location,
     };
     let mut restrictions = manager.get_from_azure(&access_token, &web_app_details)?;
-    if let Some(_) = restrictions
+
+    if restrictions
         .restrictions
         .iter()
-        .find(|n| n.priority == config.rule_priority_number)
+        .any(|n| n.priority == config.rule_priority_number)
     {
         println!("The '{}' Web App is already unlocked", &config.web_app_name);
         return Ok(());

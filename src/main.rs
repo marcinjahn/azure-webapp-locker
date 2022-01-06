@@ -1,12 +1,11 @@
 use std::error::Error;
 use std::result::Result;
 use api_playground_lockpick::{lock, unlock, AppConfig};
-use config;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let error_msg =
         "1 or 0 should be provided, where 1 will unlock API Playground and 0 will lock it";
-    let param = std::env::args().skip(1).next().expect(error_msg);
+    let param = std::env::args().nth(1).expect(error_msg);
 
     let config = get_config()?;
 
